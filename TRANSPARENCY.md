@@ -31,3 +31,17 @@ Every allocation is held in a public, verifiable address — multisig vaults, a 
 | `0xc2a582…890d` | JDP: Treasury (Multisig) |
 | `0xBD0d62…4856` | JDP: Founder Vesting |
 | `0xebfeeb…04ef` | JDP: Aerodrome LP |
+
+---
+
+## Security Notes (context for automated scanners)
+
+Automated scanners (e.g. GoPlus) flag a few items on the JDP contract. Here is the honest context — all are standard launch-protection, not honeypot risks, and all are verifiable in the public source:
+
+- **"Anti-whale / transaction limited"** — JDP launches with per-transaction and per-wallet **anti-bot caps** so no single bot can drain the thin launch liquidity. These are **temporary** and removed via `removeLimits()` once the market stabilizes, after which JDP transacts freely.
+- **"Anti-whale is modifiable"** — this simply refers to `setLimits()` / `removeLimits()`, the functions used to *lift* the caps above.
+- **"Tax can be modified"** — the 0.5% burn rate is adjustable via `setBurnRate()`, **but it is hard-capped at 2% in the contract (`MAX_BURN_BPS = 200`)**. It is mathematically impossible to raise it to a honeypot level. Verify in the source.
+
+**What the contract does NOT have** (the actually dangerous features): no mint function (supply is fixed at 100M), no blacklist, no hidden owner, no ability to block selling, no proxy/upgradeability. Source verified on BaseScan, Sourcify, and Blockscout.
+
+Owner powers are bounded and will move to the Treasury multisig as the project matures.

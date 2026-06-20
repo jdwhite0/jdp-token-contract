@@ -110,6 +110,12 @@ Full wallet transparency: [TRANSPARENCY.md](https://github.com/jdwhite0/jdp-toke
 
 ---
 
+
+### A note on automated scanner flags
+Scanners may flag JDP's **anti-bot caps** and **adjustable burn** as risks. Context: the caps are temporary launch protection (removed via `removeLimits()` post-stabilization), and the burn is **hard-capped at 2%** in the contract — a honeypot-level tax is impossible. The contract has **no mint, no blacklist, no hidden owner, and no ability to block selling.** All verifiable in the public, verified source.
+
+---
+
 ## 9. Roadmap
 
 1. **Foundation** *(complete)* — contract deployed & verified, supply distributed to multisig vaults, founder vesting live, transparency published.
