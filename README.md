@@ -58,6 +58,9 @@ This repository holds the **public, verifiable smart-contract source** for the l
 
 ---
 
+## Litepaper
+Read the [JDP Litepaper](LITEPAPER.md) — participation thesis, tokenomics, security, and roadmap.
+
 ## Wallet Transparency
 All allocations live in public multisig Safes, a vesting contract, or the liquidity pool — see [TRANSPARENCY.md](TRANSPARENCY.md) for every address and label.
 
